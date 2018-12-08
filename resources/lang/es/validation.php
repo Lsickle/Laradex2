@@ -32,7 +32,6 @@ return [
     'boolean'              => 'El campo :attribute debe ser verdadero o falso.',
     'confirmed'            => 'El campo confirmación de :attribute no coincide.',
     'date'                 => 'El campo :attribute no corresponde con una fecha válida.',
-    'date_equals' => 'The :attribute must be a date equal to :date.',
     'date_format'          => 'El campo :attribute no corresponde con el formato de fecha :format.',
     'different'            => 'Los campos :attribute y :other deben ser diferentes.',
     'digits'               => 'El campo :attribute debe ser un número de :digits dígitos.',
@@ -49,13 +48,13 @@ return [
         'string'  => 'El campo :attribute debe contener más de :value caracteres.',
         'array'   => 'El campo :attribute debe contener más de :value elementos.',
     ],
-   'gte'                  => [
+    'gte'                  => [
         'numeric' => 'El campo :attribute debe ser mayor o igual a :value.',
         'file'    => 'El archivo :attribute debe pesar :value o más kilobytes.',
         'string'  => 'El campo :attribute debe contener :value o más caracteres.',
         'array'   => 'El campo :attribute debe contener :value o más elementos.',
     ],
-   'image'                => 'El campo :attribute debe ser una imagen.',
+    'image'                => 'El campo :attribute debe ser una imagen.',
     'in'                   => 'El campo :attribute es inválido.',
     'in_array'             => 'El campo :attribute no existe en :other.',
     'integer'              => 'El campo :attribute debe ser un número entero.',
@@ -63,7 +62,7 @@ return [
     'ipv4'                 => 'El campo :attribute debe ser una dirección IPv4 válida.',
     'ipv6'                 => 'El campo :attribute debe ser una dirección IPv6 válida.',
     'json'                 => 'El campo :attribute debe ser una cadena de texto JSON válida.',
-     'lt'                   => [
+    'lt'                   => [
         'numeric' => 'El campo :attribute debe ser menor a :value.',
         'file'    => 'El archivo :attribute debe pesar menos de :value kilobytes.',
         'string'  => 'El campo :attribute debe contener menos de :value caracteres.',
@@ -91,7 +90,7 @@ return [
     ],
     'not_in'               => 'El campo :attribute seleccionado es inválido.',
     'not_regex'            => 'El formato del campo :attribute es inválido.',
-    'numeric'              => 'El campo :attribute debe ser un número.',
+	'numeric'              => 'El campo :attribute debe ser un número.',
     'present'              => 'El campo :attribute debe estar presente.',
     'regex'                => 'El formato del campo :attribute es inválido.',
     'required'             => 'El campo :attribute es obligatorio.',
@@ -102,7 +101,7 @@ return [
     'required_without'     => 'El campo :attribute es obligatorio cuando :values no está presente.',
     'required_without_all' => 'El campo :attribute es obligatorio cuando ninguno de los campos :values están presentes.',
     'same'                 => 'Los campos :attribute y :other deben coincidir.',
-     'size'                 => [
+    'size'                 => [
         'numeric' => 'El campo :attribute debe ser :size.',
         'file'    => 'El archivo :attribute debe pesar :size kilobytes.',
         'string'  => 'El campo :attribute debe contener :size caracteres.',
@@ -136,9 +135,9 @@ return [
     | Custom Validation Attributes
     |--------------------------------------------------------------------------
     |
-    | The following language lines are used to swap our attribute placeholder
-    | with something more reader friendly such as "E-Mail Address" instead
-    | of "email". This simply helps us make our message more expressive.
+    | The following language lines are used to swap attribute place-holders
+    | with something more reader friendly such as E-Mail Address instead
+    | of "email". This simply helps us make messages a little cleaner.
     |
     */
 

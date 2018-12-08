@@ -14,3 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+route::get('prueba/123/{locura}', 'controladorprueba@prueba');
+
+route::resource('trainers', 'TrainerController');
