@@ -5,7 +5,7 @@ namespace LaraDex\Http\Controllers;
 use LaraDex\Http\Controllers\Controller;
 
 /**controlador de prueba para laradex
-	nombre del controlador: pruebacontroller.php
+	nombre del controlador: controladorprueba.php
 	clase ppal: controladorpueba
  * 
  */
