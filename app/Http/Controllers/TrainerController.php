@@ -34,7 +34,10 @@ class TrainerController extends Controller
      */
     public function store(Request $request)
     {
-        return $request->input('name');
+        $trainer = new Trainer();
+        $trainer-> name = $trainer->input('name');
+        $trainer-> save();
+        return 'saved';
         // return $request->all
     }
 
