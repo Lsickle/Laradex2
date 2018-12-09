@@ -11,7 +11,7 @@
 						<div class="card-body">
 							<h5 class="card-title">{{$trainer->name}}</h5>	
 							<p class="card-text" style="overflow-y: scroll; max-height:3rem; min-height:3rem;">{{$trainer->description}}</p>
-							<a href="/trainers/{{$trainer->id}}" class="btn btn-primary">Ver mas...</a>
+							<a href="/trainers/{{$trainer->slug}}" class="btn btn-primary">Ver mas...</a>
 						</div>
 					</div>
 				</div>
