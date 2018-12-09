@@ -6,14 +6,12 @@
 	<div class="row">
 		@foreach($trainers as $trainer)
 				<div class="col-sm">
-					<div class="card" style="width: 18rem;">
-						<img class="card-img-top" src="images/{{$trainer->avatar}}" onerror="this.src='images/default.jpg';" alt="" style="width: 18rem;
-height:18rem;">
-						{{-- <img class="card-img-top" src=".../100px180" alt="Card image ap"> --}}
+					<div class="card text-center" style="width: 18rem; margin-top:3rem;">
+						<img class="card-img-top rounded-circle mx-auto d-block" src="images/{{$trainer->avatar}}" onerror="this.src='images/default.jpg';" alt="" style="margin:2rem; background-color:#EFEFEF; width:8rem;height:8rem;">
 						<div class="card-body">
-							<h5 class="card-title">{{$trainer->name}}</h5>
-							<p class="card-text">Some quick example to build on the card title and make up the bulk of the card's content.</p>	
-							<a href="#" class="btn btn-primary">Go Somewhere</a>
+							<h5 class="card-title">{{$trainer->name}}</h5>	
+							<p class="card-text" style="overflow-y: scroll; max-height:3rem; min-height:3rem;">{{$trainer->description}}</p>
+							<a href="/trainers/{{$trainer->id}}" class="btn btn-primary">Ver mas...</a>
 						</div>
 					</div>
 				</div>

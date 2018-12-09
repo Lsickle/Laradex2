@@ -47,9 +47,15 @@ class TrainerController extends Controller
             $name = public_path().'/images/default.jpg';
 
         }
+        if (empty($request->input('descripcion'))){
+            $desc='descripcion generada automaticamente';
+        }else{
+            $desc=$request->input('descripcion');
+        }
         $trainer = new Trainer();
         $trainer->name = $request->input('name');
         $trainer->avatar = $name;
+        $trainer->description = $desc;
         $trainer->save();
 
         return 'Saved';
@@ -63,7 +69,7 @@ class TrainerController extends Controller
      */
     public function show($id)
     {
-        //
+        return 'tengo que mostrar los recursos de el id '.$id;
     }
 
     /**
