@@ -47,15 +47,21 @@ class TrainerController extends Controller
             $name = public_path().'/images/default.jpg';
 
         }
-        if (empty($request->input('descripcion'))){
+        if (empty($request->input('description'))){
             $desc='descripcion generada automaticamente';
         }else{
-            $desc=$request->input('descripcion');
+            $desc=$request->input('description');
+        }
+        if (empty($request->input('slug'))){
+            $slug=$request->input('name');
+        }else{
+            $slug=$request->input('slug');
         }
         $trainer = new Trainer();
         $trainer->name = $request->input('name');
         $trainer->avatar = $name;
         $trainer->description = $desc;
+        $trainer->slug = $slug;
         $trainer->save();
 
         return 'Saved';
@@ -67,11 +73,10 @@ class TrainerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($slug)
+    public function show(Trainer $trainer)
     {
-        $trainer = Trainer::where('slug','=',$slug)->firstOrFail();
          return view('trainers.show', compact('trainer'));
-         
+
     }
 
     /**
@@ -80,9 +85,10 @@ class TrainerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Trainer $trainer)
     {
-        //
+        return view('trainers.edit', compact('trainer'));
+        // return $trainer;
     }
 
     /**
@@ -92,9 +98,19 @@ class TrainerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Trainer $trainer)
     {
-        //
+        $trainer->fill($request->except('avatar'));
+        if ($request->hasfile('avatar')) {
+            $file = $request->file('avatar');
+            $name = time().$file->getClientOriginalName();
+            $file->move(public_path().'/images/',$name);
+            $trainer->avatar = $name;
+        }
+        $trainer->save();
+        return 'Updated';
+        // return $request;
+        // return $trainer;
     }
 
     /**

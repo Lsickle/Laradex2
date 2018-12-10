@@ -11,7 +11,7 @@
 		</div>
 		<div class="form-group">
 			<label for="">Descripcion</label>
-			<input type="text" name="descripcion" class="form-control" maxlength="255">
+			<input type="text" name="description" class="form-control" maxlength="255">
 		</div>
 		<div class="form-group">
 			<label for="">Avatar</label>
