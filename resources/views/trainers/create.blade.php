@@ -4,19 +4,7 @@
 
 @section('content')
 	<form action="/trainers" class="form-group" method="POST" enctype="multipart/form-data">
-		@csrf
-		<div class="form-group">
-			<label for="">Nombre</label>
-			<input type="text" name="name" class="form-control">
-		</div>
-		<div class="form-group">
-			<label for="">Descripcion</label>
-			<input type="text" name="description" class="form-control" maxlength="255">
-		</div>
-		<div class="form-group">
-			<label for="">Avatar</label>
-			<input type="file" name="avatar">
-		</div>
+		@include('trainers/form')
 		<button type="submit" class="btn btn-primary">Guardar</button>
 	</form>
 @endsection

@@ -38,6 +38,13 @@ class TrainerController extends Controller
      */
     public function store(Request $request)
     {
+
+        $validatedata= $request-> validate([
+            'name'=>'required|max: 10',
+            'slug'=>'required',
+        ]);
+
+
         if ($request->hasfile('avatar')) {
             $file = $request->file('avatar');
             $name = time().$file->getClientOriginalName();
