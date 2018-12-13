@@ -10,5 +10,11 @@
 		<p>{{$trainer->description}}</p>
 
 		<a href="/trainers/{{$trainer->slug}}/edit" class="btn btn-primary">Editar</a>
+		<br><br>
+		<form action="/trainers/{{$trainer->slug}}" class="form-group" method="POST">
+			@csrf
+			@method('DELETE')
+				<button type="submit" class="btn btn-danger">Borrar</button>
+		</form>
 	</div>
 @endsection
