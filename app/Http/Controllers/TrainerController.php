@@ -39,6 +39,9 @@ class TrainerController extends Controller
     public function store(Request $request)
     {
 
+
+
+        
         $validatedata= $request-> validate([
             'name'=>'required|max: 10',
             'slug'=>'required',
