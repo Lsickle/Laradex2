@@ -99,6 +99,10 @@ class TrainerController extends Controller
      */
     public function update(Request $request, Trainer $trainer)
     {
+        //primero se borr la imagen almacenada previamente
+        $file_path = public_path().'/images/'.$trainer->avatar;
+        \File::delete($file_path);
+        //luego se carga la imagen a actualizar
         $trainer->fill($request->except('avatar'));
         if ($request->hasfile('avatar')) {
             $file = $request->file('avatar');
@@ -107,8 +111,10 @@ class TrainerController extends Controller
             $trainer->avatar = $name;
         }
         $trainer->save();
+        return redirect()->route('trainers.show',[$trainer])->with('status','Entrenador actualizado correctamente');    
 
-        return 'Updated';
+
+        // return 'Updated';
         // return $request;
         // return $trainer;
     }
