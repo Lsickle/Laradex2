@@ -18,6 +18,8 @@ Route::get('/', function () {
 route::get('prueba/123/{locura}', 'controladorprueba@prueba');
 
 route::resource('trainers', 'TrainerController');
+route::resource('pokemons', 'PokemonController');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
