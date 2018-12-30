@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use LaraDex\role;
+use LaraDex\User;
 
 class UserTableSeeder extends Seeder
 {
@@ -11,6 +13,21 @@ class UserTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        $role_user = Role::where('name','user')->first();
+        $role_admin = Role::where('name','admin')->first();
+
+        $user = new User();
+        $user->name = 'User';
+        $user->email = 'User@mail.com';
+        $user->password = bcrypt('query');
+        $user->save();
+        $user->roles()->attach($role_user);
+
+        $user = new User();
+        $user->name = 'admin';
+        $user->email = 'admin@mail.com';
+        $user->password = bcrypt('query');
+        $user->save();
+        $user->roles()->attach($role_admin);
     }
 }
