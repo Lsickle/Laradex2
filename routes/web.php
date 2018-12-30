@@ -18,7 +18,7 @@ Route::get('/', function () {
 route::get('prueba/123/{locura}', 'controladorprueba@prueba');
 
 route::resource('trainers', 'TrainerController');
-route::resource('pokemons', 'PokemonController');
+route::resource('Pokemons', 'PokemonController');
 
 Auth::routes();
 
