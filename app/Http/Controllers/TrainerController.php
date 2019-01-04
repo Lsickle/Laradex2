@@ -15,9 +15,13 @@ class TrainerController extends Controller
      */
     public function index(Request $request)
     {   
-        $request->User()->authorizeRoles('User', 'admin');
-        $trainers = Trainer::all();
-        return view('trainers.index', compact('trainers'));
+        if (!$request->User()) {
+          return redirect()->route('login');
+        }else{
+            $request->User()->authorizeRoles('admin');
+            $trainers = Trainer::all();
+            return view('trainers.index', compact('trainers'));
+        }
     }
 
     /**
@@ -25,9 +29,15 @@ class TrainerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        return view('trainers.create');
+    public function create(Request $request)
+    {   
+        if (!$request->User()) {
+          return redirect()->route('login');
+        }else{
+            $request->User()->authorizeRoles('admin','user');
+            return view('trainers.create');
+        }
+        
     }
 
     /**
@@ -73,10 +83,13 @@ class TrainerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Trainer $trainer)
-    {
-         return view('trainers.show', compact('trainer'));
-
+    public function show(Request $request, Trainer $trainer)
+    {   
+        if (!$request->User()) {
+            return redirect()->route('login');
+        }else{
+            return view('trainers.show', compact('trainer'));
+        }
     }
 
     /**
@@ -85,9 +98,14 @@ class TrainerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Trainer $trainer)
-    {
-        return view('trainers.edit', compact('trainer'));
+    public function edit(Request $request, Trainer $trainer)
+    {   
+        if (!$request->User()) {
+            return redirect()->route('login');
+        }else{
+            return view('trainers.edit', compact('trainer'));
+        }
+        
         // return $trainer;
     }
 

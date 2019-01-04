@@ -13,8 +13,10 @@ class UserTableSeeder extends Seeder
      */
     public function run()
     {
+        
         $role_user = Role::where('name','user')->first();
         $role_admin = Role::where('name','admin')->first();
+        $role_visitor = Role::where('name','visitor')->first();
 
         $user = new User();
         $user->name = 'User';
@@ -29,5 +31,12 @@ class UserTableSeeder extends Seeder
         $user->password = bcrypt('query');
         $user->save();
         $user->roles()->attach($role_admin);
+
+        $user = new User();
+        $user->name = 'visitor';
+        $user->email = 'visitor@mail.com';
+        $user->password = bcrypt('query');
+        $user->save();
+        $user->roles()->attach($role_visitor);
     }
 }

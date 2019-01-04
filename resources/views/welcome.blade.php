@@ -85,7 +85,7 @@
                 </div>
 
                 <div class="links">
-                    <a href="/Trainers">Trainers</a>
+                    <a href="/trainers">Trainers</a>
                     <a href="/Pokemons">Pokemon´s</a>
                 </div>
             </div>
