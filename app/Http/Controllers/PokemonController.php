@@ -3,6 +3,7 @@
 namespace LaraDex\Http\Controllers;
 
 use Illuminate\Http\Request;
+use LaraDex\pokemon;
 
 class PokemonController extends Controller
 {
@@ -14,14 +15,8 @@ class PokemonController extends Controller
     public function index(Request $request)
     {   
         if ($request->ajax()) {
-            return response()->json([
-                ['id' => 1, 'name' => 'Pikachu'],
-                ['id' => 2, 'name' => 'squirtle'],
-                ['id' => 3, 'name' => 'charizard'],
-                ['id' => 4, 'name' => 'Blastoise'],
-                ['id' => 5, 'name' => 'Venasaur']
-            ]);
-            # code...
+            $pokemons = pokemon::all();
+            return response()->json($pokemons, 200);
         }
         return view('Pokemons.index');
     }
@@ -44,7 +39,15 @@ class PokemonController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if ($request->ajax()) {
+            $pokemon = new pokemon();
+            $pokemon->name = $request->input('name');
+            $pokemon->picture = $request->input('picture');
+            $pokemon->save();
+            return response()->json([   
+                'message' => 'Pokemon creado correctamente.'
+            ], 200);
+        }
     }
 
     /**
