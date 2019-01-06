@@ -22,6 +22,7 @@ Vue.component('example-component', require('./components/ExampleComponent.vue'))
 
 Vue.component('pokemon-component', require('./components/PokemonComponent.vue'));
 
+Vue.component('spinner', require('./components/Spinner.vue'));
 // import MyComponent from './components/PokemonComponent.vue';
 
 // Vue.component('pokemon-component', MyComponent);

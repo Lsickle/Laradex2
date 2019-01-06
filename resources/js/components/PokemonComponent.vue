@@ -1,5 +1,6 @@
 <template>
 	<div class="row">
+		<spinner v-show="loading"></spinner>
 		<div class="col-sm" v-for=' pokemon in pokemons'>
 			<div class="card text-center" style="width: 18rem; margin-top:3rem;">
 				<img class="card-img-top rounded-circle mx-auto d-block" src="images/" onerror="this.src='images/default.jpg';" alt="" style="margin:2rem; background-color:#EFEFEF; width:8rem;height:8rem;">
@@ -18,15 +19,22 @@
 		data() {
 			return{
 				pokemons:[
-					{ id: 1, name: "pikachu" },
-					{ id: 2, name: "squirtle" },
-					{ id: 3, name: "charizard" },
-					{ id: 4, name: "Blastoise" },
-					{ id: 5, name: "Venasaur" }
-				]
+					// { id: 1, name: "pikachu" },
+					// { id: 2, name: "squirtle" },
+					// { id: 3, name: "charizard" },
+					// { id: 4, name: "Blastoise" },
+					// { id: 5, name: "Venasaur" }
+				],
+				loading: true
 			}
 		},
         mounted() {
+        	axios
+        	.get('http://laradex2.test/Pokemons')
+        	.then((res) => {
+        		this.pokemons = res.data
+        		this.loading = false
+        	})
             console.log('Component mounted.')
         }
     }
