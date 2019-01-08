@@ -45,7 +45,8 @@ class PokemonController extends Controller
             $pokemon->picture = $request->input('picture');
             $pokemon->save();
             return response()->json([   
-                'message' => 'Pokemon creado correctamente.'
+                'message' => 'Pokemon creado correctamente.',
+                'pokemon' => $pokemon
             ], 200);
         }
     }

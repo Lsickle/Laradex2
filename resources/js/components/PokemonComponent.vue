@@ -15,19 +15,19 @@
 </template>
 
 <script type="text/javascript">
+	import EventBus from '../event-bus';
 	export default {
 		data() {
 			return{
-				pokemons:[
-					// { id: 1, name: "pikachu" },
-					// { id: 2, name: "squirtle" },
-					// { id: 3, name: "charizard" },
-					// { id: 4, name: "Blastoise" },
-					// { id: 5, name: "Venasaur" }
-				],
+				pokemons:[],
 				loading: true
 			}
 		},
+		created() {
+			EventBus.$on('pokemon-added', data => {
+				this.pokemons.push(data)
+			}) 
+		},	
         mounted() {
         	axios
         	.get('http://laradex2.test/Pokemons')
@@ -35,7 +35,6 @@
         		this.pokemons = res.data
         		this.loading = false
         	})
-            console.log('Component mounted.')
         }
     }
 </script>
