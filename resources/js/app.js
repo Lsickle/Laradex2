@@ -18,11 +18,10 @@ window.Vue = require('vue');
  * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
  */
 
-Vue.component('example-component', require('./components/ExampleComponent.vue'));
-Vue.component('pokemon-component', require('./components/PokemonComponent.vue'));
-Vue.component('spinner', require('./components/Spinner.vue'));
-Vue.component('add-pokemon-btn', require('./components/AddPokemonComponent.vue'));
-Vue.component('create-form-pokemon', require('./components/CreatePokemonComponent.vue'));
+Vue.component('list-of-pokemons', require('./components/pokemons/list.vue'));
+Vue.component('modal-button', require('./components/pokemons/modal-button.vue'));
+Vue.component('create-form-pokemon', require('./components/pokemons/add.vue'));
+Vue.component('spinner', require('./components/wigets/Spinner.vue'));
 // import MyComponent from './components/PokemonComponent.vue';
 
 // Vue.component('pokemon-component', MyComponent);

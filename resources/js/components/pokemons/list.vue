@@ -15,7 +15,7 @@
 </template>
 
 <script type="text/javascript">
-	import EventBus from '../event-bus';
+	import EventBus from '../../event-bus';
 	export default {
 		data() {
 			return{

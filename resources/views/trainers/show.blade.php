@@ -18,4 +18,6 @@
 				<button type="submit" class="btn btn-danger">Borrar</button>
 		</form>
 	</div>
+	<create-form-pokemon></create-form-pokemon>
+	<modal-button></modal-button>
 @endsection

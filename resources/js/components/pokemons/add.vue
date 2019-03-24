@@ -26,7 +26,7 @@
 	</div>
 </template>
 <script type="text/javascript">
-	import EventBus from '../event-bus';
+	import EventBus from '../../event-bus';
 	export default{
 		data(){
 			return{
@@ -36,12 +36,15 @@
 		},
 		methods: {
 			savePokemon: function(){
-				axios.post('http://laradex2.test/Pokemons',{
+				let currentRoute = window.location.pathname
+				console.log(currentRoute)
+				axios.post(`http://laradex2.test${currentRoute}/pokemons`,{
 					name:this.name,
 					picture:this.picture
 				})
 				.then(function(res){
-					$('#addPokemon').modal('hide'),
+					console.log(res)
+					$('#addPokemon').modal('hide')
 					EventBus.$emit('pokemon-added', res.data.pokemon)
 				})
 				.catch(function(err){

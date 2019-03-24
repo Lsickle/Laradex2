@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use LaraDex\role;
-use LaraDex\User;
+use App\role;
+use App\User;
 
 class UserTableSeeder extends Seeder
 {
