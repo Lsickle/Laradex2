@@ -13,11 +13,16 @@ class PokemonController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index(Trainer $trainer, Request $request)
     {   
         if ($request->ajax()) {
-            $pokemons = pokemon::all();
+            $pokemons = $trainer->pokemon;
             return response()->json($pokemons, 200);
+            // return response()->json([   
+            //     'trainer' => $trainer
+            //     'message' => 'Pokemon creado correctamente.',
+            //     'pokemon' => $pokemon
+            // ], 200);
         }
         return view('Pokemons.index');
     }

@@ -29,9 +29,11 @@
 			}) 
 		},	
         mounted() {
+        	let currentRoute = window.location.pathname
         	axios
-        	.get('http://laradex2.test/Pokemons')
+        	.get(`http://laradex2.test${currentRoute}/pokemons`)
         	.then((res) => {
+        		console.log(res)
         		this.pokemons = res.data
         		this.loading = false
         	})

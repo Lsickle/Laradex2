@@ -48192,7 +48192,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 	mounted: function mounted() {
 		var _this2 = this;
 
-		axios.get('http://laradex2.test/Pokemons').then(function (res) {
+		var currentRoute = window.location.pathname;
+		axios.get('http://laradex2.test' + currentRoute + '/pokemons').then(function (res) {
+			console.log(res);
 			_this2.pokemons = res.data;
 			_this2.loading = false;
 		});

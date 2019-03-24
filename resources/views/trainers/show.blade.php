@@ -18,6 +18,7 @@
 				<button type="submit" class="btn btn-danger">Borrar</button>
 		</form>
 	</div>
+	<list-of-pokemons></list-of-pokemons>
 	<create-form-pokemon></create-form-pokemon>
 	<modal-button></modal-button>
 @endsection
